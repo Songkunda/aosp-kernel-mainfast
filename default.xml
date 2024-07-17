@@ -7,7 +7,7 @@
     remote="aosp" sync-j="4" />
   <remote name="skd" fetch="https://github.com/Songkunda/" />
 
-  <project path="private/msm-google" name="aosp_kernel_google_redbull" groups="partner" remote="skd" clone-depth="1" >
+  <project path="private/msm-google" name="aosp_kernel_google_redbull" groups="partner" remote="skd" clone-depth="1" submodules="true">
     <linkfile dest="build.config" src="build.config.redbull.no-cfi"/>
     <linkfile dest="build_redbull-gki.sh" src="build_redbull-gki.sh"/>
     <linkfile dest="build_redbull.sh" src="build_redbull.sh"/>

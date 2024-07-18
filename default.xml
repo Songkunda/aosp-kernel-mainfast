@@ -14,7 +14,7 @@
   </project>
 
   <project path="private/msm-google/KernelSU" name="KernelSU" groups="partner" remote="skd" clone-depth="1" revision="refs/tags/v0.9.5">
-    <linkfile dest="private/msm-google/drivers/kernelsu" src="kernelsu"/>
+    <linkfile dest="private/msm-google/drivers/kernelsu" src="kernel"/>
   </project>
   <project path="private/msm-google/arch/arm64/boot/dts/vendor" name="kernel/msm-extra/devicetree" groups="partner" clone-depth="1"/>
   <project path="private/msm-google/arch/arm64/boot/dts/vendor/qcom/camera" name="kernel/msm-extra/camera-devicetree" groups="partner" clone-depth="1"/>

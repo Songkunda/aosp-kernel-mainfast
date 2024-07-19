@@ -2,7 +2,7 @@
 <manifest>
 
   <remote name="aosp" fetch="https://mirrors.ustc.edu.cn/aosp/" />
-  <default revision="android-msm-redbull-4.19-android13-qpr2" remote="aosp" sync-j="4" />
+  <default revision="android-msm-redbull-4.19-android13-qpr3" remote="aosp" sync-j="4" />
   <remote name="skd" fetch="https://github.com/Songkunda/" />
 
   <project path="build" name="kernel/build" groups="partner"/>

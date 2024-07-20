@@ -3,7 +3,7 @@
 
   <remote name="aosp" fetch="https://mirrors.ustc.edu.cn/aosp/" />
   <default revision="refs/tags/android-13.0.0_r83" remote="aosp" sync-j="4" />
-  <remote name="skd" fetch="https://github.com/Songkunda/" />
+  <remote name="skd" fetch="git@github.com:Songkunda/" />
   <superproject name="platform/superproject" remote="aosp" revision="android-13.0.0_r83" />
   <contactinfo bugurl="go/repo-bug" />
   <!-- BEGIN open-source projects -->

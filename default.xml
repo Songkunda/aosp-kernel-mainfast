@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
   <remote name="skd" fetch="git://git@github.com:Songkunda/" />
-  <remote name="aosp" fetch="https://mirrors.shanghaitech.edu.cn/AOSP"/>
+  <remote name="aosp" fetch="git://mirrors.shanghaitech.edu.cn/AOSP"/>
   <default revision="refs/tags/android-13.0.0_r43" remote="aosp" sync-j="4" />
 
 

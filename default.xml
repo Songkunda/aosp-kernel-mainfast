@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote name="skd" fetch="git://git@github.com:Songkunda/" />
-  <remote name="aosp" fetch="git://mirrors.shanghaitech.edu.cn/AOSP"/>
-  <default revision="refs/tags/android-13.0.0_r43" remote="aosp" sync-j="4" />
 
+  <remote name="aosp" fetch="https://mirrors.ustc.edu.cn/aosp/" />
+  <default revision="refs/tags/android-13.0.0_r43" remote="aosp" sync-j="4" />
+  <remote name="skd" fetch="https://github.com/Songkunda/" />
 
   <superproject name="platform/superproject" remote="aosp" revision="android-13.0.0_r43"/>
   <contactinfo bugurl="go/repo-bug" />

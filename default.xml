@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-
+  <remote name="skd" fetch="git@github.com:Songkunda/" />
   <remote name="aosp" fetch=".." review="https://android-review.googlesource.com/" />
   <default revision="refs/tags/android-13.0.0_r43" remote="aosp" sync-j="4" />
-  <remote name="skd" fetch="git@github.com:Songkunda/" />
+
 
   <superproject name="platform/superproject" remote="aosp" revision="android-13.0.0_r43"/>
   <contactinfo bugurl="go/repo-bug" />

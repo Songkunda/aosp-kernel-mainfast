@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
-  <remote name="aosp" fetch="https://mirrors.ustc.edu.cn/aosp/" />
-  <default revision="refs/tags/android-13.0.0_r83" remote="aosp" sync-j="4" />
+  <remote name="aosp" fetch=".." review="https://mirrors.ustc.edu.cn/aosp/" />
   <remote name="skd" fetch="git@github.com:Songkunda/" />
-  <superproject name="platform/superproject" remote="aosp" revision="android-13.0.0_r83" />
+  <default revision="refs/tags/android-13.0.0_r43" remote="aosp" sync-j="4" />
+
+  <superproject name="platform/superproject" remote="aosp" revision="android-13.0.0_r43"/>
   <contactinfo bugurl="go/repo-bug" />
   <!-- BEGIN open-source projects -->
-  <project path="build/make" name="platform/build" groups="pdk">
+  <project path="build/make" name="platform/build" groups="pdk" clone-depth="1">
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
     <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
     <linkfile src="core" dest="build/core" />
@@ -15,138 +16,129 @@
     <linkfile src="target" dest="build/target" />
     <linkfile src="tools" dest="build/tools" />
   </project>
-  <project path="build/bazel" name="platform/build/bazel" groups="pdk">
+  <project path="build/bazel" name="platform/build/bazel" groups="pdk" clone-depth="1">
     <linkfile src="bazel.WORKSPACE" dest="WORKSPACE" />
     <linkfile src="bazel.sh" dest="tools/bazel" />
     <linkfile src="bazel.BUILD" dest="BUILD" />
   </project>
-  <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" groups="pdk" />
-  <project path="build/blueprint" name="platform/build/blueprint" groups="pdk,tradefed" />
-  <project path="build/pesto" name="platform/build/pesto" groups="pdk" />
-  <project path="build/soong" name="platform/build/soong" groups="pdk,tradefed">
+  <project path="build/bazel_common_rules" name="platform/build/bazel_common_rules" groups="pdk" clone-depth="1" />
+  <project path="build/blueprint" name="platform/build/blueprint" groups="pdk,tradefed" clone-depth="1" />
+  <project path="build/pesto" name="platform/build/pesto" groups="pdk" clone-depth="1"/>
+  <project path="build/soong" name="platform/build/soong" groups="pdk,tradefed" clone-depth="1">
     <linkfile src="root.bp" dest="Android.bp" />
     <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
   </project>
-  <project path="art" name="platform/art" groups="pdk" />
-  <project path="bionic" name="platform/bionic" groups="pdk" />
-  <project path="bootable/recovery" name="platform/bootable/recovery" groups="pdk" />
-  <project path="bootable/libbootloader" name="platform/bootable/libbootloader" groups="vts,pdk" />
-  <project path="cts" name="platform/cts" groups="cts,pdk-cw-fs,pdk-fs" />
-  <project path="dalvik" name="platform/dalvik" groups="pdk-cw-fs,pdk-fs" />
-  <project path="developers/build" name="platform/developers/build" groups="developers,pdk" />
-  <project path="developers/demos" name="platform/developers/demos" groups="developers" />
-  <project path="developers/samples/android" name="platform/developers/samples/android" groups="developers" />
-  <project path="development" name="platform/development" groups="developers,pdk-cw-fs,pdk-fs" />
-  <project path="device/amlogic/yukawa" name="device/amlogic/yukawa" groups="device,yukawa,pdk" />
+  <project path="art" name="platform/art" groups="pdk" clone-depth="1"/>
+  <project path="bionic" name="platform/bionic" groups="pdk" clone-depth="1"/>
+  <project path="bootable/recovery" name="platform/bootable/recovery" groups="pdk" clone-depth="1"/>
+  <project path="bootable/libbootloader" name="platform/bootable/libbootloader" groups="vts,pdk" clone-depth="1"/>
+  <project path="cts" name="platform/cts" groups="cts,pdk-cw-fs,pdk-fs" clone-depth="1"/>
+  <project path="dalvik" name="platform/dalvik" groups="pdk-cw-fs,pdk-fs" clone-depth="1"/>
+  <project path="developers/build" name="platform/developers/build" groups="developers,pdk" clone-depth="1"/>
+  <project path="developers/demos" name="platform/developers/demos" groups="developers" clone-depth="1"/>
+  <project path="developers/samples/android" name="platform/developers/samples/android" groups="developers" clone-depth="1"/>
+  <project path="development" name="platform/development" groups="developers,pdk-cw-fs,pdk-fs" clone-depth="1"/>
+  <project path="device/amlogic/yukawa" name="device/amlogic/yukawa" groups="device,yukawa,pdk" clone-depth="1"/>
   <project path="device/amlogic/yukawa-kernel" name="device/amlogic/yukawa-kernel" groups="device,yukawa,pdk" clone-depth="2" />
-  <project path="device/common" name="device/common" groups="pdk-cw-fs,pdk" />
-  <project path="device/generic/arm64" name="device/generic/arm64" groups="pdk" />
-  <project path="device/generic/armv7-a-neon" name="device/generic/armv7-a-neon" groups="pdk" />
-  <project path="device/generic/art" name="device/generic/art" groups="pdk" />
-  <project path="device/generic/car" name="device/generic/car" groups="pdk" />
-  <project path="device/generic/common" name="device/generic/common" groups="pdk" />
-  <project path="device/generic/goldfish" name="device/generic/goldfish" groups="pdk" />
-  <project path="device/generic/goldfish-opengl" name="device/generic/goldfish-opengl" groups="pdk" />
-  <project path="device/generic/mini-emulator-arm64" name="device/generic/mini-emulator-arm64" groups="pdk" />
-  <project path="device/generic/mini-emulator-armv7-a-neon" name="device/generic/mini-emulator-armv7-a-neon" groups="pdk" />
-  <project path="device/generic/mini-emulator-x86" name="device/generic/mini-emulator-x86" groups="pdk" />
-  <project path="device/generic/mini-emulator-x86_64" name="device/generic/mini-emulator-x86_64" groups="pdk" />
-  <project path="device/generic/opengl-transport" name="device/generic/opengl-transport" groups="pdk" />
-  <project path="device/generic/qemu" name="device/generic/qemu" groups="pdk" />
-  <project path="device/generic/trusty" name="device/generic/trusty" groups="pdk" />
-  <project path="device/generic/uml" name="device/generic/uml" groups="device,pdk" />
-  <project path="device/generic/x86" name="device/generic/x86" groups="pdk" />
-  <project path="device/generic/x86_64" name="device/generic/x86_64" groups="pdk" />
-  <project path="device/generic/vulkan-cereal" name="device/generic/vulkan-cereal" groups="pdk" />
-  <project path="device/google/atv" name="device/google/atv" groups="device,broadcom_pdk,generic_fs,pdk" />
-  <project path="device/google/barbet" name="device/google/barbet" groups="device,barbet" />
-  <project path="device/google/barbet-sepolicy" name="device/google/barbet-sepolicy" groups="device,barbet" />
-  <project path="device/google/bluejay" name="device/google/bluejay" groups="device,bluejay" />
-  <project path="device/google/bluejay-sepolicy" name="device/google/bluejay-sepolicy" groups="device,bluejay" />
+  <project path="device/common" name="device/common" groups="pdk-cw-fs,pdk" clone-depth="1"/>
+  <project path="device/generic/arm64" name="device/generic/arm64" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/armv7-a-neon" name="device/generic/armv7-a-neon" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/art" name="device/generic/art" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/car" name="device/generic/car" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/common" name="device/generic/common" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/goldfish" name="device/generic/goldfish" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/goldfish-opengl" name="device/generic/goldfish-opengl" groups="pdk" clone-depth="1" />
+  <project path="device/generic/mini-emulator-arm64" name="device/generic/mini-emulator-arm64" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/mini-emulator-armv7-a-neon" name="device/generic/mini-emulator-armv7-a-neon" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/mini-emulator-x86" name="device/generic/mini-emulator-x86" groups="pdk" clone-depth="1" />
+  <project path="device/generic/mini-emulator-x86_64" name="device/generic/mini-emulator-x86_64" groups="pdk" clone-depth="1" />
+  <project path="device/generic/opengl-transport" name="device/generic/opengl-transport" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/qemu" name="device/generic/qemu" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/trusty" name="device/generic/trusty" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/uml" name="device/generic/uml" groups="device,pdk" clone-depth="1"/>
+  <project path="device/generic/x86" name="device/generic/x86" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/x86_64" name="device/generic/x86_64" groups="pdk" clone-depth="1"/>
+  <project path="device/generic/vulkan-cereal" name="device/generic/vulkan-cereal" groups="pdk" clone-depth="1"/>
+  <project path="device/google/atv" name="device/google/atv" groups="device,broadcom_pdk,generic_fs,pdk" clone-depth="1"/>
+  <project path="device/google/barbet" name="device/google/barbet" groups="device,barbet" clone-depth="1"/>
+  <project path="device/google/barbet-sepolicy" name="device/google/barbet-sepolicy" groups="device,barbet" clone-depth="1" />
+  <project path="device/google/bluejay" name="device/google/bluejay" groups="device,bluejay" clone-depth="1"/>
+  <project path="device/google/bluejay-sepolicy" name="device/google/bluejay-sepolicy" groups="device,bluejay" clone-depth="1"/>
   <project path="device/google/bluejay-kernel" name="device/google/bluejay-kernel" groups="device,bluejay" clone-depth="1" />
-  <project path="device/google/bramble" name="device/google/bramble" groups="device,bramble" />
-  <project path="device/google/bramble-sepolicy" name="device/google/bramble-sepolicy" groups="device,bramble" />
-  <project path="device/google/contexthub" name="device/google/contexthub" groups="device,pdk" />
-  <project path="device/google/coral" name="device/google/coral" groups="device,coral,generic_fs" />
-  <project path="device/google/coral-kernel" name="device/google/coral-kernel" groups="device,coral,generic_fs" clone-depth="1" />
-  <project path="device/google/coral-sepolicy" name="device/google/coral-sepolicy" groups="device,coral,generic_fs" />
-  <project path="device/google/felix" name="device/google/felix" groups="device,felix" />
-  <project path="device/google/felix-sepolicy" name="device/google/felix-sepolicy" groups="device,felix" />
-  <project path="device/google/felix-kernel" name="device/google/felix-kernel" groups="device,felix" clone-depth="1" />
-  <project path="device/google/gs101" name="device/google/gs101" groups="device,slider,bluejay,pdk-gs-arm" />
-  <project path="device/google/gs101-sepolicy" name="device/google/gs101-sepolicy" groups="device,slider,bluejay,pdk-gs-arm" />
-  <project path="device/google/gs201" name="device/google/gs201" groups="device,cloudripper" />
-  <project path="device/google/gs201-sepolicy" name="device/google/gs201-sepolicy" groups="device,cloudripper" />
-  <project path="device/google/gs-common" name="device/google/gs-common" groups="device,slider,bluejay,pdk-gs-arm" />
-  <project path="device/google/lynx" name="device/google/lynx" groups="device,lynx" />
-  <project path="device/google/lynx-sepolicy" name="device/google/lynx-sepolicy" groups="device,lynx" />
-  <project path="device/google/lynx-kernel" name="device/google/lynx-kernel" groups="device,lynx" clone-depth="1" />
-  <project path="device/google/pantah" name="device/google/pantah" groups="device,cloudripper" />
-  <project path="device/google/pantah-sepolicy" name="device/google/pantah-sepolicy" groups="device,cloudripper" />
+  <project path="device/google/bramble" name="device/google/bramble" groups="device,bramble" clone-depth="1"/>
+  <project path="device/google/bramble-sepolicy" name="device/google/bramble-sepolicy" groups="device,bramble" clone-depth="1"/>
+  <project path="device/google/contexthub" name="device/google/contexthub" groups="device,pdk" clone-depth="1"/>
+  <project path="device/google/coral" name="device/google/coral" groups="device,coral,generic_fs" clone-depth="1"/>
+  <project path="device/google/coral-kernel" name="device/google/coral-kernel" groups="device,coral,generic_fs" clone-depth="1" clone-depth="1"/>
+  <project path="device/google/coral-sepolicy" name="device/google/coral-sepolicy" groups="device,coral,generic_fs" clone-depth="1"/>
+  <project path="device/google/gs101" name="device/google/gs101" groups="device,slider,bluejay,pdk-gs-arm" clone-depth="1"/>
+  <project path="device/google/gs101-sepolicy" name="device/google/gs101-sepolicy" groups="device,slider,bluejay,pdk-gs-arm" clone-depth="1"/>
+  <project path="device/google/gs201" name="device/google/gs201" groups="device,cloudripper" clone-depth="1"/>
+  <project path="device/google/gs201-sepolicy" name="device/google/gs201-sepolicy" groups="device,cloudripper" clone-depth="1"/>
+  <project path="device/google/gs-common" name="device/google/gs-common" groups="device,slider,bluejay,pdk-gs-arm" clone-depth="1" />
+  <project path="device/google/pantah" name="device/google/pantah" groups="device,cloudripper" clone-depth="1"/>
+  <project path="device/google/pantah-sepolicy" name="device/google/pantah-sepolicy" groups="device,cloudripper" clone-depth="1"/>
   <project path="device/google/pantah-kernel" name="device/google/pantah-kernel" groups="device,cloudripper" clone-depth="1" />
-  <project path="device/google/raviole" name="device/google/raviole" groups="device,slider,pdk-gs-arm" />
+  <project path="device/google/raviole" name="device/google/raviole" groups="device,slider,pdk-gs-arm" clone-depth="1"/>
   <project path="device/google/raviole-kernel" name="device/google/raviole-kernel" groups="device,slider,pdk-gs-arm" clone-depth="1" />
-  <project path="device/google/redbull" name="device/google/redbull" groups="device,redbull" />
+  <project path="device/google/redbull" name="device/google/redbull" groups="device,redbull" clone-depth="1"/>
   <project path="device/google/redbull-kernel" name="device/google/redbull-kernel" groups="device,bramble,redfin" clone-depth="1" />
-  <project path="device/google/redbull-sepolicy" name="device/google/redbull-sepolicy" groups="device,redbull" />
-  <project path="device/google/redfin" name="aosp_device_google_redfin" groups="device,redfin" remote="skd" revision="android-13.0.0_r83"/>
-  <project path="device/google/redfin-sepolicy" name="device/google/redfin-sepolicy" groups="device,redfin" />
-  <project path="device/google/tangorpro" name="device/google/tangorpro" groups="device,tangorpro" />
-  <project path="device/google/tangorpro-sepolicy" name="device/google/tangorpro-sepolicy" groups="device,tangorpro" />
-  <project path="device/google/tangorpro-kernel" name="device/google/tangorpro-kernel" groups="device,tangorpro" clone-depth="1" />
-  <project path="device/google/sunfish" name="device/google/sunfish" groups="device,sunfish" />
+  <project path="device/google/redbull-sepolicy" name="device/google/redbull-sepolicy" groups="device,redbull" clone-depth="1"/>
+  <project path="device/google/redfin" name="aosp_device_google_redfin" groups="device,redfin" remote="skd" revision="android-13.0.0_r83" clone-depth="1"/>
+  <project path="device/google/redfin-sepolicy" name="device/google/redfin-sepolicy" groups="device,redfin" clone-depth="1"/>
+  <project path="device/google/sunfish" name="device/google/sunfish" groups="device,sunfish" clone-depth="1"/>
   <project path="device/google/sunfish-kernel" name="device/google/sunfish-kernel" groups="device,sunfish" clone-depth="1" />
-  <project path="device/google/sunfish-sepolicy" name="device/google/sunfish-sepolicy" groups="device,sunfish" />
-  <project path="device/google/cuttlefish" name="device/google/cuttlefish" groups="device,pdk" />
+  <project path="device/google/sunfish-sepolicy" name="device/google/sunfish-sepolicy" groups="device,sunfish" clone-depth="1"/>
+  <project path="device/google/cuttlefish" name="device/google/cuttlefish" groups="device,pdk" clone-depth="1"/>
   <project path="device/google/cuttlefish_prebuilts" name="device/google/cuttlefish_prebuilts" groups="device,pdk" clone-depth="1" />
-  <project path="device/google/trout" name="device/google/trout" groups="device,trout,gull,pdk" />
-  <project path="device/google/vrservices" name="device/google/vrservices" groups="pdk" />
-  <project path="device/google_car" name="device/google_car" groups="pdk" />
-  <project path="device/linaro/dragonboard" name="device/linaro/dragonboard" groups="device,dragonboard,pdk" />
+  <project path="device/google/trout" name="device/google/trout" groups="device,trout,gull,pdk" clone-depth="1"/>
+  <project path="device/google/vrservices" name="device/google/vrservices" groups="pdk" clone-depth="1"/>
+  <project path="device/google_car" name="device/google_car" groups="pdk" clone-depth="1"/>
+  <project path="device/linaro/dragonboard" name="device/linaro/dragonboard" groups="device,dragonboard,pdk" clone-depth="1"/>
   <project path="device/linaro/dragonboard-kernel" name="device/linaro/dragonboard-kernel" groups="device,dragonboard,pdk" clone-depth="1" />
-  <project path="device/linaro/hikey" name="device/linaro/hikey" groups="device,hikey,pdk" />
+  <project path="device/linaro/hikey" name="device/linaro/hikey" groups="device,hikey,pdk" clone-depth="1" />
   <project path="device/linaro/hikey-kernel" name="device/linaro/hikey-kernel" groups="device,hikey,pdk" clone-depth="1" />
-  <project path="device/linaro/poplar" name="device/linaro/poplar" groups="device,poplar,pdk" />
+  <project path="device/linaro/poplar" name="device/linaro/poplar" groups="device,poplar,pdk" clone-depth="1"/>
   <project path="device/linaro/poplar-kernel" name="device/linaro/poplar-kernel" groups="device,poplar,pdk" clone-depth="1" />
-  <project name="device/mediatek/wembley-sepolicy" path="device/mediatek/wembley-sepolicy" groups="device"/>
-  <project path="device/sample" name="device/sample" groups="pdk" />
-  <project path="device/ti/beagle_x15" name="device/ti/beagle-x15" groups="device,beagle_x15,pdk" />
+  <project name="device/mediatek/wembley-sepolicy" path="device/mediatek/wembley-sepolicy" groups="device" clone-depth="1"/>
+  <project path="device/sample" name="device/sample" groups="pdk" clone-depth="1"/>
+  <project path="device/ti/beagle_x15" name="device/ti/beagle-x15" groups="device,beagle_x15,pdk" clone-depth="1"/>
   <project path="device/ti/beagle_x15-kernel" name="device/ti/beagle-x15-kernel" groups="device,beagle_x15,pdk" clone-depth="1" />
-  <project path="external/aac" name="platform/external/aac" groups="pdk" />
-  <project path="external/abseil-cpp" name="platform/external/abseil-cpp" groups="pdk" />
-  <project path="external/adt-infra" name="platform/external/adt-infra" groups="adt-infra,notdefault,pdk-fs" />
-  <project path="external/android-clat" name="platform/external/android-clat" groups="pdk" />
-  <project path="external/androidplot" name="platform/external/androidplot" groups="pdk" />
-  <project path="external/angle" name="platform/external/angle" groups="pdk" />
-  <project path="external/ant-glob" name="platform/external/ant-glob" groups="pdk" />
-  <project path="external/antlr" name="platform/external/antlr" groups="pdk" />
-  <project path="external/apache-commons-bcel" name="platform/external/apache-commons-bcel" groups="pdk" />
-  <project path="external/apache-commons-compress" name="platform/external/apache-commons-compress" groups="pdk" />
-  <project path="external/apache-commons-math" name="platform/external/apache-commons-math" groups="pdk" />
-  <project path="external/apache-harmony" name="platform/external/apache-harmony" groups="pdk" />
-  <project path="external/apache-http" name="platform/external/apache-http" groups="pdk" />
-  <project path="external/apache-xml" name="platform/external/apache-xml" groups="pdk" />
-  <project path="external/arm-neon-tests" name="platform/external/arm-neon-tests" groups="vendor" />
-  <project path="external/arm-optimized-routines" name="platform/external/arm-optimized-routines" groups="pdk" />
-  <project path="external/arm-trusted-firmware" name="platform/external/arm-trusted-firmware" groups="pdk" />
-  <project path="external/auto" name="platform/external/auto" groups="pdk" />
-  <project path="external/autotest" name="platform/external/autotest" groups="pdk-fs" />
-  <project path="external/android-nn-driver" name="platform/external/android-nn-driver" groups="pdk-lassen,pdk-gs-arm" />
-  <project path="external/armnn" name="platform/external/armnn" groups="pdk-lassen,pdk-gs-arm" />
-  <project path="external/avb" name="platform/external/avb" groups="pdk" />
-  <project path="external/bazelbuild-rules_android" name="platform/external/bazelbuild-rules_android" groups="pdk" />
-  <project path="external/bazel-skylib" name="platform/external/bazel-skylib" groups="pdk" />
-  <project path="external/bc" name="platform/external/bc" groups="pdk" />
-  <project path="external/bcc" name="platform/external/bcc" groups="pdk" />
-  <project path="external/blktrace" name="platform/external/blktrace" groups="pdk" />
-  <project path="external/boringssl" name="platform/external/boringssl" groups="pdk" />
-  <project path="external/bouncycastle" name="platform/external/bouncycastle" groups="pdk" />
-  <project path="external/bpftool" name="platform/external/bpftool" groups="pdk" />
-  <project path="external/brotli" name="platform/external/brotli" groups="pdk" />
-  <project path="external/bsdiff" name="platform/external/bsdiff" groups="pdk" />
-  <project path="external/bzip2" name="platform/external/bzip2" groups="pdk" />
-  <project path="external/caliper" name="platform/external/caliper" groups="pdk" />
-  <project path="external/capstone" name="platform/external/capstone" groups="pdk" />
+  <project path="external/aac" name="platform/external/aac" groups="pdk" clone-depth="1"/>
+  <project path="external/abseil-cpp" name="platform/external/abseil-cpp" groups="pdk" clone-depth="1"/>
+  <project path="external/adt-infra" name="platform/external/adt-infra" groups="adt-infra,notdefault,pdk-fs" clone-depth="1"/>
+  <project path="external/android-clat" name="platform/external/android-clat" groups="pdk" clone-depth="1"/>
+  <project path="external/androidplot" name="platform/external/androidplot" groups="pdk" clone-depth="1"/>
+  <project path="external/angle" name="platform/external/angle" groups="pdk" clone-depth="1"/>
+  <project path="external/ant-glob" name="platform/external/ant-glob" groups="pdk" clone-depth="1"/>
+  <project path="external/antlr" name="platform/external/antlr" groups="pdk" clone-depth="1"/>
+  <project path="external/apache-commons-bcel" name="platform/external/apache-commons-bcel" groups="pdk" clone-depth="1"/>
+  <project path="external/apache-commons-compress" name="platform/external/apache-commons-compress" groups="pdk" clone-depth="1"/>
+  <project path="external/apache-commons-math" name="platform/external/apache-commons-math" groups="pdk" clone-depth="1" />
+  <project path="external/apache-harmony" name="platform/external/apache-harmony" groups="pdk" clone-depth="1"/>
+  <project path="external/apache-http" name="platform/external/apache-http" groups="pdk" clone-depth="1" />
+  <project path="external/apache-xml" name="platform/external/apache-xml" groups="pdk" clone-depth="1"/>
+  <project path="external/arm-neon-tests" name="platform/external/arm-neon-tests" groups="vendor" clone-depth="1"/>
+  <project path="external/arm-optimized-routines" name="platform/external/arm-optimized-routines" groups="pdk" clone-depth="1"/>
+  <project path="external/arm-trusted-firmware" name="platform/external/arm-trusted-firmware" groups="pdk" clone-depth="1"/>
+  <project path="external/auto" name="platform/external/auto" groups="pdk" clone-depth="1"/>
+  <project path="external/autotest" name="platform/external/autotest" groups="pdk-fs" clone-depth="1"/>
+  <project path="external/android-nn-driver" name="platform/external/android-nn-driver" groups="pdk-lassen,pdk-gs-arm" clone-depth="1"/>
+  <project path="external/armnn" name="platform/external/armnn" groups="pdk-lassen,pdk-gs-arm" clone-depth="1"/>
+  <project path="external/avb" name="platform/external/avb" groups="pdk" clone-depth="1"/>
+  <project path="external/bazelbuild-rules_android" name="platform/external/bazelbuild-rules_android" groups="pdk" clone-depth="1"/>
+  <project path="external/bazel-skylib" name="platform/external/bazel-skylib" groups="pdk" clone-depth="1"/>
+  <project path="external/bc" name="platform/external/bc" groups="pdk" clone-depth="1"/>
+  <project path="external/bcc" name="platform/external/bcc" groups="pdk" clone-depth="1"/>
+  <project path="external/blktrace" name="platform/external/blktrace" groups="pdk" clone-depth="1"/>
+  <project path="external/boringssl" name="platform/external/boringssl" groups="pdk" clone-depth="1"/>
+  <project path="external/bouncycastle" name="platform/external/bouncycastle" groups="pdk" clone-depth="1"/>
+  <project path="external/bpftool" name="platform/external/bpftool" groups="pdk" clone-depth="1"/>
+  <project path="external/brotli" name="platform/external/brotli" groups="pdk" clone-depth="1"/>
+  <project path="external/bsdiff" name="platform/external/bsdiff" groups="pdk" clone-depth="1"/>
+  <project path="external/bzip2" name="platform/external/bzip2" groups="pdk" clone-depth="1"/>
+  <project path="external/caliper" name="platform/external/caliper" groups="pdk" clone-depth="1"/>
+  <project path="external/capstone" name="platform/external/capstone" groups="pdk" clone-depth="1"/>
   <project path="external/catch2" name="platform/external/catch2" groups="pdk" />
   <project path="external/cblas" name="platform/external/cblas" groups="pdk" />
   <project path="external/cbor-java" name="platform/external/cbor-java" groups="pdk" />
@@ -868,7 +860,6 @@
   <project path="hardware/st/secure_element" name="platform/hardware/st/secure_element" groups="pdk" />
   <project path="hardware/st/secure_element2" name="platform/hardware/st/secure_element2" groups="pdk" />
   <project path="hardware/samsung/nfc" name="platform/hardware/samsung/nfc" groups="pdk" />
-  <project path="hardware/synaptics/wlan" name="platform/hardware/synaptics/wlan" groups="pdk" />
   <project path="hardware/ti/am57x" name="platform/hardware/ti/am57x" groups="pdk" />
   <project path="kernel/configs" name="kernel/configs" groups="vts,pdk" />
   <project path="kernel/prebuilts/4.19/arm64" name="kernel/prebuilts/4.19/arm64" groups="pdk" clone-depth="1" />

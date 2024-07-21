@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-
   <remote name="aosp" fetch="https://mirrors.ustc.edu.cn/aosp/" />
   <default revision="android-msm-redbull-4.19-android13-qpr2" remote="aosp" sync-j="4" />
-  <remote name="skd" fetch="git@github.com:Songkunda/" />
+  <remote name="skd" fetch="https://github.com/Songkunda/" />
 
   <project path="build" name="kernel/build" groups="partner"/>
 
